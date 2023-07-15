@@ -1,6 +1,6 @@
-# README
+# Resolving the Oracle Cloud "Out of Capacity" Problem and Acquiring a Free VPS with 4 ARM Cores / 24GB of Memory
 
-This Python script creates a virtual machine instance in Oracle Cloud Infrastructure (OCI) using the OCI Python SDK. It also sets up the necessary networking components if the subnet ID is not provided as an environment variable.
+This Python script creates a virtual machine instance in Oracle Cloud Infrastructure (OCI) using the OCI Python SDK. If there is available host capacity, the script attempts to create the instance. It also sets up the necessary networking components if the subnet ID is not provided as an environment variable.
 
 ## Prerequisites
 
