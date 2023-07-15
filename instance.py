@@ -102,7 +102,9 @@ launch_instance_details = oci.core.models.LaunchInstanceDetails(
         boot_volume_vpus_per_gb=20,
     ),
 )
+
 try:
+    count = 1
     while True:
         try:
             create_instance_response = compute_client.launch_instance(launch_instance_details)
@@ -111,8 +113,9 @@ try:
             break  # Exit the loop if the instance is created successfully      
         except oci.exceptions.ServiceError as e:
             if e.code == "InternalError" and "Out of host capacity" in e.message:
-                print("Error: No host capacity available. Waiting...")
+                print("Error "+str(count)+": No host capacity available. Waiting...")
                 time.sleep(60)  # Wait for 1 minute before retrying
+                count += 1
             else:
                 raise e  # Raise any other exception
 except KeyboardInterrupt:
